@@ -1,10 +1,10 @@
 .center-logo {
     display: block;
     margin: auto;
-    width: 800px;
-    height: 300px; 
+    width: 350px;
+    height: 100px; 
     overflow: hidden; 
-    clip-path: inset(10px 20px 100px 40px); 
+    clip-path: inset(0px 0px 20px 0px); 
     }
     
   

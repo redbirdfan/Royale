@@ -5,6 +5,7 @@ import Screen from './CustomTags/Screen';
 import Spinreels from './CustomTags/Spinreels'
 import './CustomTagsCss/Logo.css';
 import './CustomTagsCss/Royale.css';
+import './CustomTagsCss/Spinreels.css';
 
 function App() {
   return(
@@ -15,6 +16,7 @@ function App() {
     <div>
     <Screen />
     </div>
+    <div><Spinreels /></div>
     </header>
   );
   }

@@ -1,0 +1,15 @@
+.spinreels-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .violet-button {
+    background-color: violet;
+    color: whitesmoke;
+    font-family: cursive;
+    border: none;
+    padding: 10px 20px;
+    font-size: 35px;
+    cursor: pointer;
+  }
+  
