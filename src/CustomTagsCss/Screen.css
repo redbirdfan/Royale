@@ -21,10 +21,22 @@
     align-items: center;
     border-radius: 15px 15px 15px 15px;
     background-color: whitesmoke;
+    animation: spin 1s linear
   }
   
   img {
     max-width: 100%;
     max-height: 100%;
   }
+
+  @keyframes spin {
+    0% {
+      transform: spin(0deg) translateY(-100%);
+    }
+    100% {
+      transform: spin(360deg) translateY(0);
+    }
+  }
+
+
   

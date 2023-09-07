@@ -1,4 +1,7 @@
-import React from 'react';
+
+//import React, { useState } from 'react';
+ 
+
 
 const images = [
   'https://img.freepik.com/premium-vector/queen-hearts-playing-card-isolated_1308-78393.jpg?w=360',
@@ -15,57 +18,65 @@ const getRandomImage = () => {
   return images[randomIndex];
 };
 
-const getReelImageLeft = (x) => {
-  if (images[images.indexOf(x)] = 0)
-      return images[images.length-1]
-    else { return images[images.indexOf(x)-1]}
+/*payLinePicLeft = getRandomImage(); 
+payLinePicMiddle = getRandomImage(); 
+payLinePicRight = getRandomImage();
+*/
+
+function upperPic(x) {
+  if(images.indexOf(x) === 0 ) {
+    return images[images.length-1];
+  } else if(images.indexOf(x) === (images.length-1)){
+    return images[0]
+  } else {return images[(images.indexOf(x))-1]}
 }
 
-const getReelImageRight = (x) => {
-  if (images[images.indexOf(x)] = 0)
-      return images[images.length-1];
-    else { return images[images.indexOf(images.length)-1]
-
+function lowerPic(x) {
+  if(images.indexOf(x) === 0) {
+    return images[1];
+  } else if(images.indexOf(x) === (images.length-1)) {
+    return images[0]
+  } else return images[images.indexOf(x)+1]
 }
-
-let payLinePicLeft = getRandomImage();
-let payLinePicMiddle = getRandomImage();
-let payLinePicRight = getRandomImage()
 
 const Screen = () => {
+let payLinePicLeft = getRandomImage(); 
+let payLinePicMiddle = getRandomImage(); 
+let payLinePicRight = getRandomImage();
+  
   return (
     <div className="screen-container">
       <div className="column">
         <div className="box">
-          <img src={getReelImageLeft(payLinePicLeft)} alt="Random" />
+          <img src={upperPic(payLinePicLeft)} alt="Random" />
         </div>
         <div className="box">
           <img src={payLinePicLeft} alt="Random" />
         </div>
         <div className="box">
-          <img src={getReelImageRight(payLinePicLeft)} alt="Random" />
+          <img src={lowerPic(payLinePicLeft)} alt="Random" />
         </div>
       </div>
       <div className="column">
         <div className="box">
-          <img src={getReelImageLeft(payLinePicMiddle)} alt="Random" />
+          <img src={upperPic(payLinePicMiddle)} alt="Random" />
         </div>
         <div className="box">
           <img src={payLinePicMiddle} alt="Random" />
         </div>
         <div className="box">
-          <img src={getReelImageRight(payLinePicMiddle)} alt="Random" />
+          <img src={lowerPic(payLinePicMiddle)} alt="Random" />
         </div>
       </div>
       <div className="column">
         <div className="box">
-          <img src={getReelImageLeft(payLinePicRight)} alt="Random" />
+          <img src={upperPic(payLinePicRight)} alt="Random" />
         </div>
         <div className="box">
           <img src={payLinePicRight} alt="Random" />
         </div>
         <div className="box">
-          <img src={getReelImageRight(payLinePicRight)} alt="Random" />
+          <img src={lowerPic(payLinePicRight)} alt="Random" />
         </div>
       </div>
     </div>

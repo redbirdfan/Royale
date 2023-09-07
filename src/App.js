@@ -16,7 +16,9 @@ function App() {
     <div>
     <Screen />
     </div>
-    <div><Spinreels /></div>
+    <div>
+    <Spinreels />
+    </div>
     </header>
   );
   }
