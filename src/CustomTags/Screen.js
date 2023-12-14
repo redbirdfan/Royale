@@ -1,7 +1,8 @@
 
-//import React, { useState } from 'react';
- 
+import React, { useState } from 'react'
 
+
+const defaultCard = 'https://filletfamilyblog.files.wordpress.com/2013/02/d0490860-0-large.jpg'
 
 const images = [
   'https://img.freepik.com/premium-vector/queen-hearts-playing-card-isolated_1308-78393.jpg?w=360',
@@ -13,74 +14,116 @@ const images = [
   'https://img.freepik.com/premium-photo/close-up-gold-crown-pole-with-red-pillow-generative-ai_902049-32389.jpg?w=740'  // Add more image URLs here
 ];
 
-const getRandomImage = () => {
+
+
+function getRandomImage() {
   const randomIndex = Math.floor(Math.random() * images.length);
   return images[randomIndex];
 };
 
-/*payLinePicLeft = getRandomImage(); 
-payLinePicMiddle = getRandomImage(); 
-payLinePicRight = getRandomImage();
-*/
-
-function upperPic(x) {
-  if(images.indexOf(x) === 0 ) {
-    return images[images.length-1];
-  } else if(images.indexOf(x) === (images.length-1)){
-    return images[0]
-  } else {return images[(images.indexOf(x))-1]}
-}
-
-function lowerPic(x) {
-  if(images.indexOf(x) === 0) {
-    return images[1];
-  } else if(images.indexOf(x) === (images.length-1)) {
-    return images[0]
-  } else return images[images.indexOf(x)+1]
-}
-
 const Screen = () => {
-let payLinePicLeft = getRandomImage(); 
-let payLinePicMiddle = getRandomImage(); 
-let payLinePicRight = getRandomImage();
-  
+  const [payLinePics, setPayLinePics] = useState({
+
+left: defaultCard,
+middle: defaultCard, 
+right: defaultCard,
+leftUpper: defaultCard,
+leftLower: defaultCard,
+rightUpper: defaultCard,
+rightLower: defaultCard,
+lowerMiddle: defaultCard,
+upperMiddle: defaultCard,
+
+});
+
+function upperPic(x){
+    const currentIndex = images.indexOf(x);
+    return images[currentIndex === 0 ? images.length - 1 : currentIndex - 1];
+  };
+
+  function lowerPic(x){
+    const currentIndex = images.indexOf(x);
+    return images[currentIndex === images.length - 1 ? 0 : currentIndex + 1];
+  };
+
+
+function spinClick() {
+  setPayLinePics((payLinePics) => {
+    return {
+     left: getRandomImage(),
+     middle: getRandomImage(),
+     right: getRandomImage(),
+  }
+})
+}
+
+
+function spinClickTwo() {
+  setPayLinePics((payLinePics) => {
+    return {
+      leftLower: lowerPic(payLinePics.left),
+      leftUpper: upperPic(payLinePics.left),
+      upperMiddle: upperPic(payLinePics.middle),
+      lowerMiddle: lowerPic(payLinePics.middle),
+      rightLower: lowerPic(payLinePics.right),
+      rightUpper: upperPic(payLinePics.right), 
+      middle: payLinePics.middle,
+      left: payLinePics.left,
+      right: payLinePics.right,
+    }
+  })
+}
+
+  const dealCards = () => {
+    spinClick();
+    setTimeout(() => {
+    spinClickTwo();
+  }, 100);
+};
+
   return (
     <div className="screen-container">
       <div className="column">
         <div className="box">
-          <img src={upperPic(payLinePicLeft)} alt="Random" />
+          <img src={payLinePics.leftUpper} alt="Random" />
         </div>
         <div className="box">
-          <img src={payLinePicLeft} alt="Random" />
+          <img src={payLinePics.left} alt="Random" />
         </div>
         <div className="box">
-          <img src={lowerPic(payLinePicLeft)} alt="Random" />
+          <img src={payLinePics.leftLower} alt="Random" />
         </div>
       </div>
       <div className="column">
         <div className="box">
-          <img src={upperPic(payLinePicMiddle)} alt="Random" />
+          <img src={payLinePics.upperMiddle} alt="Random" />
         </div>
         <div className="box">
-          <img src={payLinePicMiddle} alt="Random" />
+          <img src={payLinePics.middle} alt="Random" />
         </div>
         <div className="box">
-          <img src={lowerPic(payLinePicMiddle)} alt="Random" />
+          <img src={payLinePics.lowerMiddle} alt="Random" />
         </div>
       </div>
       <div className="column">
         <div className="box">
-          <img src={upperPic(payLinePicRight)} alt="Random" />
+          <img src={payLinePics.rightUpper} alt="Random" />
         </div>
         <div className="box">
-          <img src={payLinePicRight} alt="Random" />
+          <img src={payLinePics.right} alt="Random" />
         </div>
         <div className="box">
-          <img src={lowerPic(payLinePicRight)} alt="Random" />
+          <img src={payLinePics.rightLower} alt="Random" />
         </div>
       </div>
+      <div className='OnSpinReels-container'>
+      <button className='violet-button' onClick={dealCards}>
+        SPIN
+      </button>
+    </div>
     </div>
   );
-};
+  }
+
 
 export default Screen;
