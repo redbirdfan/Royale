@@ -1,5 +1,6 @@
 .screen-container {
     display: flex;
+
   }
   
   .column {
@@ -12,15 +13,15 @@
   }
   
   .box {
-    width: 125px;
-    height: 125px;
+    width: 70px;
+    height: 80px;
     margin: 0 20px 0 0;
     border: 5px solid goldenrod;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px 15px 15px 15px;
-    background-color: violet;
+    background-color: white;
     animation: spin 1s linear
     
   }

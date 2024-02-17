@@ -1,14 +1,19 @@
-.OnSpinReels-container {
+.onSpinReels-container {
+    -ms-flex-item-align: left;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-right: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .violet-button {
     background-color: violet;
-    color: whitesmoke;
+    color: gold;
     font-family: cursive;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 35px;
     cursor: pointer;
   }

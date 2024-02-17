@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const defaultCard = 'https://filletfamilyblog.files.wordpress.com/2013/02/d0490860-0-large.jpg'
 
@@ -21,20 +20,27 @@ function getRandomImage() {
   return images[randomIndex];
 };
 
+
+
 const Screen = () => {
   const [payLinePics, setPayLinePics] = useState({
-
-left: defaultCard,
-middle: defaultCard, 
-right: defaultCard,
-leftUpper: defaultCard,
-leftLower: defaultCard,
-rightUpper: defaultCard,
-rightLower: defaultCard,
-lowerMiddle: defaultCard,
-upperMiddle: defaultCard,
+    left: defaultCard,
+    middle: defaultCard, 
+    right: defaultCard,
+    leftUpper: defaultCard,
+    leftLower: defaultCard,
+    rightUpper: defaultCard,
+    rightLower: defaultCard,
+    lowerMiddle: defaultCard,
+    upperMiddle: defaultCard,
 
 });
+
+const navigate = useNavigate();
+
+useEffect(() => {
+  console.log("screen slots accessed");
+}, []);
 
 function upperPic(x){
     const currentIndex = images.indexOf(x);
@@ -71,7 +77,7 @@ function spinClickTwo() {
       left: payLinePics.left,
       right: payLinePics.right,
     }
-  })
+  });
 }
 
   const dealCards = () => {
@@ -82,6 +88,7 @@ function spinClickTwo() {
 };
 
   return (
+    <div className='App-header'>
     <div className="screen-container">
       <div className="column">
         <div className="box">
@@ -115,15 +122,17 @@ function spinClickTwo() {
         <div className="box">
           <img src={payLinePics.rightLower} alt="Random" />
         </div>
-      </div>
-      <div className='OnSpinReels-container'>
+        </div>
+    </div>
+      
+    <div className="onSpinReels-container">
       <button className='violet-button' onClick={dealCards}>
         SPIN
-      </button>
+      </button> 
     </div>
-    </div>
-  );
-  }
+  </div> 
 
 
-export default Screen;
+  )}
+
+  export default Screen;
