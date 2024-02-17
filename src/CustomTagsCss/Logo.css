@@ -1,11 +1,11 @@
 .center-logo {
     display: block;
-    margin: 15px;
+    margin: 0px;
     width: 300px;
     height: 95px; 
     overflow: hidden; 
     clip-path: inset(0px 0px 20px 0px);
-    }
+}
     
   
   

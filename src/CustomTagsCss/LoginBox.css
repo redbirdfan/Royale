@@ -1,0 +1,9 @@
+.boxStyling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    gap: 5px;
+    padding-right: 45px;
+}
