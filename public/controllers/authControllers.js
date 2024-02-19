@@ -4,7 +4,6 @@ const loginUser = (req, res) => {
         console.log("login approved")
     }
         else { console.log("User does not exist")}
-    }
   };
   
 const createUser = (req, res) => {
