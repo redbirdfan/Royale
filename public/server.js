@@ -1,10 +1,10 @@
 require('dotenv').config();
-require('express').config();
-require('body-parser').config();
-require('cors').config();
-import { loginUser, createUser} from './controllers/authController'
-import routes, { notFoundRoute } from './routes';
-import errorHandler from './errorHandler';
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const authControllers = require('../controllers/authController');
+const routes = require('./routes');
+const errorHandler = require('./errorHandler');
 
 
 const port = process.env.PORT || 3000
