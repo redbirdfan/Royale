@@ -37,7 +37,7 @@ const LoginBox = () => {
         </div>
             <div>
                 <button type="submit">Login</button>
-                <button>Create Account</button>
+                <button type="submit">Create Account</button>
             </div>
         </form>
     
