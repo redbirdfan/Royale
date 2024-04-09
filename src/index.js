@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route} from "react-router-dom";
-import Screen from './pages/Screen';
-import './index.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Slots from './pages/slots';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-      <Route exact path = "/" Component={App} />
-      <Route path = "/slots" Component={Screen} />
+      <Route exact path = "/" element={<App />} />
+      <Route path = "/slots" element={<Slots />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

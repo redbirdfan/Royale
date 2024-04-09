@@ -8,13 +8,17 @@ import './CustomTagsCss/OnSpinReels.css';
 import LoginBox from './CustomTags/LoginBox';
 import { useEffect } from 'react';
 
+
 function App() {
     useEffect(()=> {
-      fetch('localhost4000/users')
+      fetch('http://localhost:4000/')
       .then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.log("oops, something went wrong"))
-    })
+    }, []);
+
+
+
   return(
     <div>  
       <Logo />  

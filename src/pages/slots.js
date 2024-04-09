@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Logo from "../CustomTags/logo"
 
 const defaultCard = 'https://filletfamilyblog.files.wordpress.com/2013/02/d0490860-0-large.jpg'
+
+const winner = false
 
 const images = [
   'https://img.freepik.com/premium-vector/queen-hearts-playing-card-isolated_1308-78393.jpg?w=360',
@@ -22,7 +25,7 @@ function getRandomImage() {
 
 
 
-const Screen = () => {
+const Slots = () => {
   const [payLinePics, setPayLinePics] = useState({
     left: defaultCard,
     middle: defaultCard, 
@@ -37,10 +40,6 @@ const Screen = () => {
 });
 
 const navigate = useNavigate();
-
-useEffect(() => {
-  console.log("screen slots accessed");
-}, []);
 
 function upperPic(x){
     const currentIndex = images.indexOf(x);
@@ -77,14 +76,14 @@ function spinClickTwo() {
       left: payLinePics.left,
       right: payLinePics.right,
     }
-  });
+  } );
 }
 
   const dealCards = () => {
     spinClick();
     setTimeout(() => {
     spinClickTwo();
-  }, 100);
+  }, );
 };
 
   return (
@@ -135,4 +134,4 @@ function spinClickTwo() {
 
   )}
 
-  export default Screen;
+  export default Slots;
